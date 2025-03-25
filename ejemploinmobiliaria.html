@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita - Inmobiliaria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        select, input, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .confirmation {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #d4edda;
+            border-left: 5px solid #155724;
+            color: #155724;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Agendar Cita</h2>
+        <form id="appointmentForm">
+            <label for="date">Fecha:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Hora:</label>
+            <input type="time" id="time" required>
+
+            <label for="type">Tipo de Cita:</label>
+            <select id="type">
+                <option value="Visita Propiedad">Visita Propiedad</option>
+                <option value="Asesoría">Asesoría</option>
+            </select>
+
+            <button type="submit">Agendar</button>
+        </form>
+
+        <div class="confirmation" id="confirmationMessage">
+            ¡Cita agendada con éxito!
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let date = document.getElementById("date").value;
+            let time = document.getElementById("time").value;
+            let type = document.getElementById("type").value;
+
+            if (date && time && type) {
+                document.getElementById("confirmationMessage").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
